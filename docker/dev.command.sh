@@ -1,4 +1,4 @@
 #!/bin/bash
 
-yarn install
+npm i
 npm run start:dev
