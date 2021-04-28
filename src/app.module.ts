@@ -5,8 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import configuration from './modules/configuration';
-import { DatabaseConfigModule } from './modules/database-config/database.module';
-import { TypeOrmDefaultConfigService } from './modules/database-config/database.providers';
+import { DatabaseConfigModule } from './modules/database/database.module';
+import { TypeOrmDefaultConfigService } from './modules/database/database.providers';
 import { HealthModule } from './modules/health/health.module';
 
 @Module({

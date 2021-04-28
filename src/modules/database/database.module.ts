@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ConfigurationModule } from '../configuration/configuration.module';
+import { AppConfigModule } from '../configuration/configuration.module';
 import { TypeOrmDefaultConfigService } from './database.providers';
 
 @Module({
-  imports: [ConfigurationModule],
+  imports: [AppConfigModule],
   providers: [TypeOrmDefaultConfigService],
   exports: [TypeOrmDefaultConfigService],
 })

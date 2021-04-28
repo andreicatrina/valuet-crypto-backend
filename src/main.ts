@@ -14,7 +14,6 @@ async function bootstrap() {
 
   app.enableCors({ origin: true });
   app.use(helmet());
-  app.set('trust proxy', 1);
   app.useGlobalPipes(new ValidationPipe());
 
   const options = new DocumentBuilder()
