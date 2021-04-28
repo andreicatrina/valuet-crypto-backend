@@ -7,4 +7,4 @@ import { TypeOrmDefaultConfigService } from './database.providers';
   providers: [TypeOrmDefaultConfigService],
   exports: [TypeOrmDefaultConfigService],
 })
-export class DatabaseConfigModule {}
+export class DatabaseModule {}
