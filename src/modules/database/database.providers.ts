@@ -14,7 +14,7 @@ export class TypeOrmDefaultConfigService implements TypeOrmOptionsFactory {
       type: 'postgres',
       synchronize: false,
       autoLoadEntities: false,
-      logging: 'all',
+      logging: false,
       entities,
       ...this.config.values.database,
     };
