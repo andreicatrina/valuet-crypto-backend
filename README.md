@@ -1,4 +1,4 @@
-## Usage
+## Usage example
 
 * Provide environment variables file
 ```shell script
