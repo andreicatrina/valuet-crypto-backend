@@ -6,6 +6,12 @@ export class SignInBody {
   password: string;
 }
 
+export class SignUpBody {
+  name: string;
+  email: string;
+  password: string;
+}
+
 @Controller('api/auth')
 export class AuthenticationController {
   constructor(private authService: AuthenticationService) {}
@@ -13,5 +19,10 @@ export class AuthenticationController {
   @Post('sign-in')
   async login(@Body() body: SignInBody) {
     return this.authService.signIn(body.email, body.password);
+  }
+
+  @Post('sign-up')
+  async signUp(@Body() body: SignUpBody) {
+    return this.authService.signUp(body.email, body.password, body.name);
   }
 }

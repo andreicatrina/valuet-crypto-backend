@@ -23,3 +23,15 @@ export class IncorrectCredentialsException extends HttpException {
     );
   }
 }
+
+export class EmailAddressAlreadyRegisteredException extends HttpException {
+  constructor() {
+    super(
+      {
+        message: 'This email address is already registered',
+        error: EmailAddressAlreadyRegisteredException.name,
+      },
+      HttpStatus.BAD_REQUEST,
+    );
+  }
+}

@@ -14,6 +14,26 @@ export class AuthenticationService {
     private jwtService: JwtService,
   ) {}
 
+  public async signUp(email: string, password: string, name: string) {
+    let user = await this.userRepository.findOne({ where: { email } });
+
+    if (user) {
+      throw new exceptions.EmailAddressAlreadyRegisteredException();
+    }
+
+    const hash = await bcrypt.hash(password, 10);
+    user = this.userRepository.create({
+      name,
+      email,
+      password: hash,
+    });
+    user = await this.userRepository.save(user);
+
+    return {
+      id: user.id,
+    };
+  }
+
   public async signIn(email: string, password: string) {
     const user = await this.userRepository.findOne({ email });
 
@@ -36,6 +56,7 @@ export class AuthenticationService {
       user: {
         id: user.id,
         email: user.email,
+        name: user.name,
         createdAt: user.createdAt,
       },
       token: jwt,
